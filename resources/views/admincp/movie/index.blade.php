@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <a href="{{route('movie.create')}}" class="btn btn-primary">Thêm Phim</a>
@@ -22,6 +22,7 @@
                   <th scope="col">Quốc gia</th>
                   <th scope="col">Ngày tạo</th>
                   <th scope="col">Ngày cập nhật</th>
+                  <th scope="col">Năm phim</th>
                   <th scope="col">Quản lý</th>
                 </tr>
               </thead>
@@ -74,6 +75,9 @@
                   <td>{{$cate->country->title}}</td>
                   <td>{{$cate->ngaytao}}</td>
                   <td>{{$cate->ngaycapnhat}}</td>
+                  <td>
+                    {!! Form::selectYear('year',2000,2030,isset($cate->year) : '',['class'=>'select-year','id'=>$cate->id]) !!}
+                  </td>
                   <td>
                       {!! Form::open(['method'=>'DELETE','route'=>['movie.destroy',$cate->id],'onsubmit'=>'return confirm("Bạn có chắc muốn xóa?")']) !!}
                         {!! Form::submit('Xóa', ['class'=>'btn btn-danger']) !!}

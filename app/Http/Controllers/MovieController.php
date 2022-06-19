@@ -155,4 +155,16 @@ class MovieController extends Controller
         $movie->delete();
         return redirect()->back();
     }
+
+    /**
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update_year(Request $request) {
+        $data = $request->all();
+        $movie = Movie::find($data['id_phim']);
+        $movie->year = $data['year'];
+        $movie->save();
+    }
 }

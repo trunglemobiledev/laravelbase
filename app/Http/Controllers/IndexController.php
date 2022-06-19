@@ -13,7 +13,8 @@ use DB;
 class IndexController extends Controller
 {
     public function home(){
-        $phimhot = Movie::where('phim_hot',1)->where('status',1)->get();
+        // DESC ngaycapnhat lấy item có ngày update mới nhất
+        $phimhot = Movie::where('phim_hot',1)->where('status',1)->orderBy('ngaycapnhat','DESC')->get();
         $category = Category::orderBy('position','ASC')->where('status',1)->get();
         $genre = Genre::orderBy('id','DESC')->get();
         $country = Country::orderBy('id','DESC')->get();
@@ -21,7 +22,7 @@ class IndexController extends Controller
     	return view('pages.home', compact('category','genre','country','category_home','phimhot'));
     }
     public function category($slug){
-        $category = Category::orderBy('position','ASC')->where('status',1)->get();
+        $category = Category::orderBy('position','ASC')->where('status',1)->orderBy('ngaycapnhat','DESC')->get();
         $genre = Genre::orderBy('id','DESC')->get();
         $country = Country::orderBy('id','DESC')->get();
 
@@ -30,7 +31,7 @@ class IndexController extends Controller
     	return view('pages.category', compact('category','genre','country','cate_slug','movie'));
     }
     public function genre($slug){
-        $category = Category::orderBy('position','ASC')->where('status',1)->get();
+        $category = Category::orderBy('position','ASC')->where('status',1)->orderBy('ngaycapnhat','DESC')->get();
         $genre = Genre::orderBy('id','DESC')->get();
         $country = Country::orderBy('id','DESC')->get();
 
@@ -39,7 +40,7 @@ class IndexController extends Controller
     	return view('pages.genre', compact('category','genre','country','genre_slug','movie'));
     }
     public function country($slug){
-        $category = Category::orderBy('position','ASC')->where('status',1)->get();
+        $category = Category::orderBy('position','ASC')->where('status',1)->orderBy('ngaycapnhat','DESC')->get();
         $genre = Genre::orderBy('id','DESC')->get();
         $country = Country::orderBy('id','DESC')->get();
 
@@ -48,7 +49,7 @@ class IndexController extends Controller
     	return view('pages.country', compact('category','genre','country','country_slug','movie'));
     }
     public function movie($slug){
-        $category = Category::orderBy('position','ASC')->where('status',1)->get();
+        $category = Category::orderBy('position','ASC')->where('status',1)->orderBy('ngaycapnhat','DESC')->get();
         $genre = Genre::orderBy('id','DESC')->get();
         $country = Country::orderBy('id','DESC')->get();
         $movie = Movie::with('category','genre','country')->where('slug',$slug)->where('status',1)->first();

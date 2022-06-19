@@ -20,6 +20,8 @@
                   <th scope="col">Danh mục</th>
                   <th scope="col">Thể loại</th>
                   <th scope="col">Quốc gia</th>
+                  <th scope="col">Ngày tạo</th>
+                  <th scope="col">Ngày cập nhật</th>
                   <th scope="col">Quản lý</th>
                 </tr>
               </thead>
@@ -70,6 +72,8 @@
                   <td>{{$cate->category->title}}</td>
                   <td>{{$cate->genre->title}}</td>
                   <td>{{$cate->country->title}}</td>
+                  <td>{{$cate->ngaytao}}</td>
+                  <td>{{$cate->ngaycapnhat}}</td>
                   <td>
                       {!! Form::open(['method'=>'DELETE','route'=>['movie.destroy',$cate->id],'onsubmit'=>'return confirm("Bạn có chắc muốn xóa?")']) !!}
                         {!! Form::submit('Xóa', ['class'=>'btn btn-danger']) !!}

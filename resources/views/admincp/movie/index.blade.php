@@ -12,6 +12,8 @@
                   <th scope="col">Tên phim</th>
                   <th scope="col">Hình ảnh</th>
                   <th scope="col">Phim hot</th>
+                  <th scope="col">Định dạng</th>
+                  <th scope="col">Phụ đề</th>
                   <!-- <th scope="col">Mô tả</th> -->
                   <th scope="col">Đường dẫn</th>
                   <th scope="col">Trạng thái</th>
@@ -32,6 +34,28 @@
                         Không
                     @else
                         Có
+                    @endif
+                  </td>
+                  {{-- Định dạng chất lượng video --}}
+                  <td>
+                    @if($cate->resolution==0)
+                        HD
+                    @elseif($cate->resolution==1)
+                        SD
+                    @elseif($cate->resolution==2)
+                        HD CAM
+                    @elseif($cate->resolution==3)
+                        CAM
+                    @else
+                        FULL HD
+                    @endif
+                  </td>
+                  {{-- Phụ đề --}}
+                  <td>
+                    @if($cate->phude==0)
+                        Phụ đề
+                    @else
+                        Thuyết minh
                     @endif
                   </td>
                   <!-- <td>{{$cate->description}}</td> -->

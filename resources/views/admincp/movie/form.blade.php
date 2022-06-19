@@ -40,6 +40,14 @@
                             {!! Form::select('status', ['1'=>'Hiển thị','0'=>'Không hiển thị'], isset($movie) ? $movie->status : '', ['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
+                            {!! Form::label('Resolution', 'Định dạng', []) !!}
+                            {!! Form::select('resolution', ['0'=>'HD','1'=>'SD','2'=>'HD CAM','3'=>'CAM','4'=>'FULL HD'], isset($movie) ? $movie->resolution : '', ['class'=>'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('phude', 'Phụ đề', []) !!}
+                            {!! Form::select('phude', ['0'=>'Phụ đề','1'=>'Thuyết minh'], isset($movie) ? $movie->phude : '', ['class'=>'form-control']) !!}
+                        </div>
+                        <div class="form-group">
                             {!! Form::label('Category', 'Danh mục', []) !!}
                             {!! Form::select('category_id', $category, isset($movie) ? $movie->category_id : '', ['class'=>'form-control']) !!}
                         </div>

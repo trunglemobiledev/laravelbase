@@ -24,7 +24,27 @@
                         <div class="halim-item">
                            <a class="halim-thumb" href="{{route('movie',$mov->slug)}}">
                               <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$mov->image)}}" alt="BẠN CÙNG PHÒNG CỦA TÔI LÀ GUMIHO" title="{{$mov->title}}"></figure>
-                              <span class="status">TẬP 15</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                              <span class="status">
+                                 {{-- Chất lượng độ phân giải phim --}}
+                                    @if($mov->resolution==0)
+                                          HD
+                                      @elseif($mov->resolution==1)
+                                          SD
+                                      @elseif($mov->resolution==2)
+                                          HD CAM
+                                      @elseif($mov->resolution==3)
+                                          CAM
+                                      @else
+                                          FULL HD
+                                      @endif
+                              </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>
+                                  {{-- Phu đề thuyết minh --}}
+                                       @if($mov->phude==0)
+                                          Phụ đề
+                                       @else
+                                          Thuyết minh
+                                       @endif
+                              </span> 
                               <div class="icon_overlay"></div>
                               <div class="halim-post-title-box">
                                  <div class="halim-post-title ">

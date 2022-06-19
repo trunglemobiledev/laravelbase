@@ -47,7 +47,26 @@
                            <div class="halim-item">
                               <a class="halim-thumb" href="{{route('movie',$hot->slug)}}" title="{{$hot->title}}">
                                  <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$hot->image)}}" alt="{{$hot->title}}" title="Đại Thánh Vô Song"></figure>
-                                 <span class="status">HD</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                                 <span class="status">
+                                    @if($hot->resolution==0)
+                                          HD
+                                      @elseif($hot->resolution==1)
+                                          SD
+                                      @elseif($hot->resolution==2)
+                                          HD CAM
+                                      @elseif($hot->resolution==3)
+                                          CAM
+                                      @else
+                                          FULL HD
+                                      @endif
+                                 </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>
+                                     {{-- Phu đề thuyết minh --}}
+                                       @if($hot->phude==0)
+                                          Phụ đề
+                                      @else
+                                          Thuyết minh
+                                      @endif
+                                 </span> 
                                  <div class="icon_overlay"></div>
                                  <div class="halim-post-title-box">
                                     <div class="halim-post-title ">
@@ -81,7 +100,27 @@
                         <div class="halim-item">
                            <a class="halim-thumb" href="chitiet.php">
                               <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$mov->image)}}" alt="error" title="{{$mov->title}}"></figure>
-                              <span class="status">TẬP 15</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                              <span class="status">
+                                 {{-- Chỗ này cũ là tập phim update lên chất lượng video --}}
+                                       @if($mov->resolution==0)
+                                          HD
+                                      @elseif($mov->resolution==1)
+                                          SD
+                                      @elseif($mov->resolution==2)
+                                          HD CAM
+                                      @elseif($mov->resolution==3)
+                                          CAM
+                                      @else
+                                          FULL HD
+                                      @endif
+                              </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>
+                                 {{-- Phu đề thuyết minh --}}
+                                 @if($mov->phude==0)
+                                       Phụ đề
+                                   @else
+                                       Thuyết minh
+                                   @endif
+                              </span> 
                               <div class="icon_overlay"></div>
                               <div class="halim-post-title-box">
                                  <div class="halim-post-title ">

@@ -24,6 +24,10 @@
                             {!! Form::text('title', isset($movie) ? $movie->title : '', ['class'=>'form-control','placeholder'=>'...','id'=>'slug','onkeyup'=>'ChangeToSlug()']) !!}
                         </div>
                         <div class="form-group">
+                            {!! Form::label('thoiluong', 'Thời lượng (phút)', []) !!}
+                            {!! Form::text('thoiluong', isset($movie) ? $movie->thoiluong : '', ['class'=>'form-control','placeholder'=>'...']) !!}
+                        </div>
+                        <div class="form-group">
                             {!! Form::label('tên tiếng anh', 'Tên tiếng anh', []) !!}
                             {!! Form::text('name_eng', isset($movie) ? $movie->name_eng : '', ['class'=>'form-control','placeholder'=>'...']) !!}
                         </div>

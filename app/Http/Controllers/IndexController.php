@@ -62,4 +62,14 @@ class IndexController extends Controller
     public function episode(){
     	return view('pages.episode');
     }
+
+    public function year($year) {
+        $category = Category::orderBy('position','ASC')->where('status',1)->get();
+        $genre = Genre::orderBy('id','DESC')->get();
+        $country = Country::orderBy('id','DESC')->get();
+
+        $year = $year;
+        $movie = Movie::where('year',$year)->orderBy('ngaycapnhat','DESC')->paginate(40);
+        return view('pages.year', compact('category','genre','country','year','movie'));
+    }
 }

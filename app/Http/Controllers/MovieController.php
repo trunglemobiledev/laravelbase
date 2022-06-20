@@ -46,6 +46,7 @@ class MovieController extends Controller
         $data = $request->all();
         $movie = new Movie();
         $movie->title = $data['title'];
+        $movie->thoiluong = $data['thoiluong'];
         $movie->slug = $data['slug'];
         $movie->name_eng = $data['name_eng'];
         $movie->resolution = $data['resolution'];
@@ -111,6 +112,7 @@ class MovieController extends Controller
         $data = $request->all();
         $movie = Movie::find($id);
         $movie->title = $data['title'];
+        $movie->thoiluong = $data['thoiluong'];
         $movie->slug = $data['slug'];
         $movie->name_eng = $data['name_eng'];
         $movie->resolution = $data['resolution'];

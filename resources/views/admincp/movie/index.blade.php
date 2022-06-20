@@ -10,6 +10,7 @@
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Tên phim</th>
+                  <th scope="col">Thời lượng</th>
                   <th scope="col">Hình ảnh</th>
                   <th scope="col">Phim hot</th>
                   <th scope="col">Định dạng</th>
@@ -31,6 +32,7 @@
                 <tr>
                   <th scope="row">{{$key}}</th>
                   <td>{{$cate->title}}</td>
+                  <td>{{$cate->thoiluong}} phút</td>
                   <td><img width="100" src="{{asset('uploads/movie/'.$cate->image)}}"></td>
                   <td>
                     @if($cate->phim_hot==0)
@@ -76,7 +78,7 @@
                   <td>{{$cate->ngaytao}}</td>
                   <td>{{$cate->ngaycapnhat}}</td>
                   <td>
-                    {!! Form::selectYear('year',2000,2030,isset($cate->year) : '',['class'=>'select-year','id'=>$cate->id]) !!}
+                    {!! Form::selectYear('year',2000,2030,$cate->year,['class'=>'select-year','id'=>$cate->id]) !!}
                   </td>
                   <td>
                       {!! Form::open(['method'=>'DELETE','route'=>['movie.destroy',$cate->id],'onsubmit'=>'return confirm("Bạn có chắc muốn xóa?")']) !!}

@@ -10,6 +10,7 @@
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Tên phim</th>
+                  <th scope="col">Từ khóa</th>
                   <th scope="col">Thời lượng</th>
                   <th scope="col">Hình ảnh</th>
                   <th scope="col">Phim hot</th>
@@ -32,6 +33,7 @@
                 <tr>
                   <th scope="row">{{$key}}</th>
                   <td>{{$cate->title}}</td>
+                  <td>{{$cate->tags}}</td>
                   <td>{{$cate->thoiluong}} phút</td>
                   <td><img width="100" src="{{asset('uploads/movie/'.$cate->image)}}"></td>
                   <td>

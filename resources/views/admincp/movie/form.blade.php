@@ -37,7 +37,11 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('description', 'Mô tả phim', []) !!}
-                            {!! Form::textarea('description', isset($movie) ? $movie->description : '', ['style'=>'resize:none', 'class'=>'form-control','placeholder'=>'...','id'=>'description']) !!}
+                            {!! Form::textarea('description', isset($movie) ? $movie->description : '', ['style'=>'resize:none', 'class'=>'form-control','placeholder'=>'...']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('tags', 'Từ khóa', []) !!}
+                            {!! Form::textarea('tags', isset($movie) ? $movie->tags : '', ['style'=>'resize:none', 'class'=>'form-control','placeholder'=>'...','id'=>'description']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('status', 'Trạng thái', []) !!}

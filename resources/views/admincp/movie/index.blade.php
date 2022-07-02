@@ -33,7 +33,13 @@
                 <tr>
                   <th scope="row">{{$key}}</th>
                   <td>{{$cate->title}}</td>
-                  <td>{{$cate->tags}}</td>
+                  <td>
+                    @if ($cate->tags!=NULL)
+                    {{substr($cate->tags,0,50)}}...
+                    @else
+                    Chưa có từ khóa phim
+                    @endif
+                  </td>
                   <td>{{$cate->thoiluong}} phút</td>
                   <td><img width="100" src="{{asset('uploads/movie/'.$cate->image)}}"></td>
                   <td>

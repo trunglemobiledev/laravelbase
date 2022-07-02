@@ -31,12 +31,15 @@ Route::get('/tag/{tag}', [IndexController::class, 'tag']);
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::group(['prefix' => '', 'middleware' => 'auth'], function () {
 
-Route::resource('category', CategoryController::class);
-Route::post('resorting', [CategoryController::class,'resorting'])->name('resorting');
-Route::resource('genre', GenreController::class);
-Route::resource('country', CountryController::class);
-Route::resource('episode', EpisodeController::class);
-Route::resource('movie', MovieController::class);
-Route::get('/update-year-phim', [MovieController::class, 'update_year']);
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    Route::resource('category', CategoryController::class);
+    Route::post('resorting', [CategoryController::class, 'resorting'])->name('resorting');
+    Route::resource('genre', GenreController::class);
+    Route::resource('country', CountryController::class);
+    Route::resource('episode', EpisodeController::class);
+    Route::resource('movie', MovieController::class);
+    Route::get('/update-year-phim', [MovieController::class, 'update_year']);
+});
